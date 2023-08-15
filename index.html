@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .news-ticker {
+          width: 100%;
+          height: 40px;
+          overflow: hidden;
+          border: 1px solid #ccc;
+        }
+      
+        .news-item {
+          line-height: 40px;
+          padding: 0 10px;
+          white-space: nowrap;
+        }
+      </style>
+</head>
+
+<body>
+    <header>
+        <img src="./images/banner.png" alt="Banner Image" class="banner-image">
+        <nav class="fixed-nav navbar">
+            <div>
+                <h4 class="title">HERoines</h4>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#"> About</a></li>
+                <li><a href="#"> Events</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="#"></a>Join</li>
+                <li><a href="#"></a>Contact</li>
+                <li><a href="#"></a>Members</li>
+            </ul>
+            <div class="burger">&#9776;</div>
+        </nav>
+    </header>
+    <section>
+        <div class="news-ticker">
+            <div class="news-item">News 1: This is the first news item.</div>
+            <div class="news-item">News 2: Here comes another news update.</div>
+            <div class="news-item">News 3: Stay tuned for more news.</div>
+          </div>
+    </section>
+    <main>
+        <section class="mission-section">
+            <div class="mission-img">
+                <img src="./images/mission.png" alt="">
+            </div>
+            <div class='mission-right-side '>
+                <h2 class='mission-title '>Our Mission</h2>
+                <p class=''>The HERoines mission is to help women cultivate fundamental life skills and provide a safe
+                    space for them to grow in community with one another. We facilitate conversations, retreats, summits
+                    and workshops that empower women to re-claim their narratives. <span class="learn-more"> Learn
+                        more</span></p>
+                <div class='flex gap-10'>
+                    <button class='btn donate'>DONATE</button>
+                    <button class='btn became'>BECAME A MEMBER</button>
+                </div>
+        </section>
+        <section class="events-section">
+            <div class="events-title">
+                <h1>Up Comming Events</h1>
+                <button class="btn">view all</button>
+            </div>
+            <div class="events-right-side">
+                <img src="./images/Image by Max van den Oetelaar (1).webp" alt="">
+                <div class="events-details">
+                    <h2>HERoines Inc. Events</h2>
+                    <p>Are you looking to become the master of your own life? We at HERoines aim to empower people to
+                        put themselves and their well-being first. Join us for our upcoming events and discover with our
+                        community how to learn about YOU!</p>
+                    <h4>Events Details</h4>
+                </div>
+            </div>
+        </section>
+        <section class="testimonial-section">
+            <div class="">
+                <h2 className="">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas, odio.</h2>
+            </div>
+            <div class="bg-image">
+                <img src="./images/womens.png" alt="">
+            </div>
+        </section>
+        <section>
+            <div class="slider">
+                <div class="slider-content">
+                    <div class="slider-text">
+
+                        <p>Text 1</p>
+                        <p>Text 1</p>
+                        <p>Text 1</p>
+                    </div>
+
+                    <!-- Add more text elements as needed -->
+                </div>
+            </div>
+
+        </section>
+        <section>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                    <!-- Add more slides as needed -->
+                </div>
+            </div>
+
+        </section>
+
+    
+    </main>
+    <script>
+        function startSlider() {
+            const sliderTexts = document.querySelectorAll('.slider-text');
+            let currentIndex = 0;
+
+            function slide() {
+                sliderTexts[currentIndex].style.opacity = 0;
+                currentIndex = (currentIndex + 1) % sliderTexts.length;
+                sliderTexts[currentIndex].style.opacity = 1;
+            }
+
+            slide();
+            setInterval(slide, 10000); // Adjust the interval time as needed (in milliseconds)
+        }
+
+        startSlider();
+
+        function startSwiper() {
+            const swiperWrapper = document.querySelector('.swiper-wrapper');
+            const slides = document.querySelectorAll('.swiper-slide');
+            let currentIndex = 0;
+
+            function slide() {
+                const slideWidth = slides[0].offsetWidth;
+                currentIndex = (currentIndex + 1) % slides.length;
+                swiperWrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            }
+
+            setInterval(slide, 4000); // Adjust the interval time as needed (in milliseconds)
+        }
+
+        startSwiper();
+
+
+
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const ticker = document.querySelector(".news-ticker");
+          const newsItems = ticker.querySelectorAll(".news-item");
+          let currentIndex = 0;
+        
+          function updateTicker() {
+            newsItems[currentIndex].style.transform = "translateX(100%)";
+        
+            currentIndex = (currentIndex + 1) % newsItems.length;
+        
+            newsItems[currentIndex].style.transform = "translateX(0)";
+          }
+        
+          // Start the ticker
+          updateTicker();
+          setInterval(updateTicker, 3000); // Update every 3 seconds
+        });
+        </script>
+
+</body>
+
+</html>
